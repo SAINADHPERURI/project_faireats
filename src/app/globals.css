@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 47 100% 98%;
+    --foreground: 28 30% 14%;
+    --card: 47 100% 98%;
+    --card-foreground: 28 30% 14%;
+    --popover: 47 100% 98%;
+    --popover-foreground: 28 30% 14%;
+    --primary: 28 30% 14%;
+    --primary-foreground: 47 100% 98%;
+    --secondary: 29 39% 75%;
+    --secondary-foreground: 28 30% 14%;
+    --muted: 35 46% 90%;
+    --muted-foreground: 28 16% 38%;
+    --accent: 35 46% 90%;
+    --accent-foreground: 28 30% 14%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 48% 30%;
+    --success-foreground: 47 100% 98%;
+    --border: 29 24% 78%;
+    --input: 29 24% 78%;
+    --ring: 28 30% 24%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 28 26% 12%;
+    --foreground: 47 100% 98%;
+    --card: 29 24% 16%;
+    --card-foreground: 47 100% 98%;
+    --popover: 29 24% 16%;
+    --popover-foreground: 47 100% 98%;
+    --primary: 35 46% 90%;
+    --primary-foreground: 28 30% 14%;
+    --secondary: 29 39% 75%;
+    --secondary-foreground: 28 30% 14%;
+    --muted: 29 20% 22%;
+    --muted-foreground: 35 46% 82%;
+    --accent: 29 22% 24%;
+    --accent-foreground: 47 100% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 47 100% 98%;
+    --success: 137 42% 58%;
+    --success-foreground: 28 30% 10%;
+    --border: 29 22% 28%;
+    --input: 29 22% 28%;
+    --ring: 29 39% 75%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-width: 320px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+  }
+}
+
+@keyframes faireats-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.faireats-marquee-track {
+  animation: faireats-marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .faireats-marquee-track {
+    animation: none;
+  }
+}

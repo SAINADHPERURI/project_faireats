@@ -1,0 +1,34 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# next
+.next
+out
+
+# production
+build
+dist
+
+# env
+.env*
+!.env.example
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dev-server*.log
+
+# typescript
+*.tsbuildinfo
+
+# editor
+.idea
+.vscode
+
+# os
+.DS_Store
+Thumbs.db
