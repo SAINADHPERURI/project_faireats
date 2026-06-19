@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { appRoutes } from "@/config/routes";
 import { AuthFormField } from "@/features/auth/components/auth-form-field";
 import { AuthFormMessage } from "@/features/auth/components/auth-form-message";
-import { SocialSignInButtons } from "@/features/auth/components/social-sign-in-buttons";
+import { GoogleSignInButton } from "@/features/auth/components/google-sign-in-button";
 import { initialAuthActionState } from "@/features/auth/lib/action-state";
 import { signInAction } from "@/features/auth/lib/actions";
 import type { OnboardableUserRole } from "@/types/auth";
@@ -40,7 +40,7 @@ export function SignInForm({
 
       {!expectedRole ? (
         <>
-          <SocialSignInButtons />
+          <GoogleSignInButton />
           <div className="flex items-center gap-3" aria-hidden="true">
             <span className="h-px flex-1 bg-border" />
             <span className="font-mono text-xs uppercase text-muted-foreground">or use email</span>

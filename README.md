@@ -45,18 +45,3 @@ Sample development data is available at `supabase/seed.sql`.
 
 New Google accounts are created as customer accounts. Existing Google-linked
 accounts are redirected to the workspace assigned to their saved profile role.
-
-### Apple sign-in
-
-Apple sign-in uses the same `/api/auth/callback` application route and defaults
-new accounts to the customer workspace.
-
-1. Use an Apple Developer account to create an App ID with Sign in with Apple,
-   a Services ID for the website, and a Sign in with Apple key.
-2. Configure the Services ID with the Supabase project domain and its callback:
-   `https://<your-project-ref>.supabase.co/auth/v1/callback`.
-3. Generate the Apple OAuth client secret from the downloaded `.p8` key, then
-   enable Apple under **Supabase Authentication → Providers** using the
-   Services ID and generated secret.
-4. Store the `.p8` key securely and rotate the Apple client secret before its
-   six-month expiration.

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
-import { Apple, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
@@ -29,15 +29,7 @@ function GoogleIcon() {
   );
 }
 
-function OAuthSignInButton({
-  provider,
-  label,
-  icon
-}: {
-  provider: "google" | "apple";
-  label: string;
-  icon: ReactNode;
-}) {
+export function GoogleSignInButton() {
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -48,7 +40,7 @@ function OAuthSignInButton({
     const supabase = createSupabaseBrowserClient();
     const redirectTo = `${window.location.origin}/api/auth/callback?redirect=role`;
     const { error } = await supabase.auth.signInWithOAuth({
-      provider,
+      provider: "google",
       options: {
         redirectTo
       }
@@ -63,23 +55,14 @@ function OAuthSignInButton({
   return (
     <div className="space-y-2">
       <Button type="button" variant="outline" className="w-full" onClick={signIn} disabled={isPending}>
-        {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <span className="mr-2">{icon}</span>}
-        {label}
+        {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <span className="mr-2"><GoogleIcon /></span>}
+        Continue with Google
       </Button>
       {errorMessage ? (
         <p role="alert" className="text-center text-sm text-destructive">
           {errorMessage}
         </p>
       ) : null}
-    </div>
-  );
-}
-
-export function SocialSignInButtons() {
-  return (
-    <div className="space-y-2">
-      <OAuthSignInButton provider="google" label="Continue with Google" icon={<GoogleIcon />} />
-      <OAuthSignInButton provider="apple" label="Continue with Apple" icon={<Apple className="h-4 w-4 fill-current" />} />
     </div>
   );
 }
