@@ -92,7 +92,7 @@ export function ContactButton({
                     Food, partnerships, or support.
                   </h2>
                   <p className="mt-6 max-w-md text-base leading-7 text-muted-foreground">
-                    The FairEats contact desk is being prepared. Your final email address and phone number will appear here across the entire platform.
+                    Contact the FairEats team for customer support, restaurant partnerships, delivery opportunities, or general questions.
                   </p>
                 </div>
 
@@ -110,7 +110,7 @@ export function ContactButton({
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-50" />
                       <span className="relative inline-flex h-3 w-3 rounded-full bg-success" />
                     </span>
-                    <p className="text-sm text-muted-foreground">Contact details ready to publish after your review.</p>
+                    <p className="text-sm text-muted-foreground">Our support team is ready to help during the hours listed above.</p>
                   </div>
                 </div>
               </div>
