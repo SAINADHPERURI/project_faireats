@@ -71,14 +71,14 @@ export function ContactButton({
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 34 }}
-              className="absolute inset-y-0 right-0 flex w-full max-w-xl flex-col overflow-y-auto border-l bg-background"
+              className="absolute inset-y-0 right-0 flex w-full max-w-xl flex-col overflow-y-auto border-l border-[#D8C8B8] bg-[#FFFDF6] text-[#201A17]"
             >
-              <div className="flex items-center justify-between border-b px-6 py-5">
-                <p className="font-mono text-xs font-semibold uppercase">FairEats / Contact</p>
+              <div className="flex items-center justify-between border-b border-[#D8C8B8] px-6 py-5">
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-[#3A2F29]">FairEats / Contact</p>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="grid h-10 w-10 place-items-center rounded-md border bg-card transition-colors hover:bg-muted"
+                  className="grid h-10 w-10 place-items-center rounded-md border border-[#D8C8B8] bg-[#F7EFE4] text-[#201A17] transition-colors hover:bg-[#EEDFCF]"
                   aria-label="Close contact panel"
                 >
                   <X className="h-4 w-4" />
@@ -87,30 +87,30 @@ export function ContactButton({
 
               <div className="flex flex-1 flex-col justify-between gap-12 p-6 sm:p-10">
                 <div>
-                  <p className="font-mono text-xs font-semibold uppercase text-muted-foreground">Let&apos;s talk</p>
-                  <h2 id="contact-title" className="mt-5 text-4xl font-bold tracking-normal sm:text-6xl">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-[#59483D]">Let&apos;s talk</p>
+                  <h2 id="contact-title" className="mt-5 text-4xl font-bold leading-[1.02] tracking-[-0.03em] text-[#17120F] sm:text-6xl">
                     Food, partnerships, or support.
                   </h2>
-                  <p className="mt-6 max-w-md text-base leading-7 text-muted-foreground">
+                  <p className="mt-6 max-w-md text-base leading-7 text-[#5B4B42]">
                     Contact the FairEats team for customer support, restaurant partnerships, delivery opportunities, or general questions.
                   </p>
                 </div>
 
-                <div className="divide-y border-y">
+                <div className="divide-y divide-[#D8C8B8] border-y border-[#D8C8B8]">
                   <ContactRow icon={Mail} label="Email" value={contactDetails.email ?? "Email address coming soon"} href={contactDetails.email ? `mailto:${contactDetails.email}` : null} />
                   <ContactRow icon={Phone} label="Phone" value={contactDetails.phone ?? "Phone number coming soon"} href={contactDetails.phone ? `tel:${contactDetails.phone}` : null} />
                   <ContactRow icon={MapPin} label="Region" value={contactDetails.location} href={null} />
                 </div>
 
-                <div className="border-t pt-5">
-                  <p className="font-mono text-xs uppercase text-muted-foreground">Support hours</p>
-                  <p className="mt-2 text-sm font-medium">{contactDetails.supportHours}</p>
+                <div className="border-t border-[#D8C8B8] pt-5">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-[#59483D]">Support hours</p>
+                  <p className="mt-2 text-sm font-semibold text-[#201A17]">{contactDetails.supportHours}</p>
                   <div className="mt-8 flex items-center gap-3">
                     <span className="relative flex h-3 w-3">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-50" />
                       <span className="relative inline-flex h-3 w-3 rounded-full bg-success" />
                     </span>
-                    <p className="text-sm text-muted-foreground">Our support team is ready to help during the hours listed above.</p>
+                    <p className="text-sm text-[#5B4B42]">Our support team is ready to help during the hours listed above.</p>
                   </div>
                 </div>
               </div>
@@ -135,22 +135,22 @@ function ContactRow({
 }) {
   const content = (
     <>
-      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-muted">
+      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-[#F0E5D8] text-[#493A32]">
         <Icon className="h-5 w-5" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block font-mono text-xs uppercase text-muted-foreground">{label}</span>
-        <span className="mt-1 block truncate font-medium">{value}</span>
+        <span className="block font-mono text-xs font-semibold uppercase tracking-[0.06em] text-[#6A5548]">{label}</span>
+        <span className="mt-1 block truncate font-semibold text-[#201A17]">{value}</span>
       </span>
       {href ? <ArrowUpRight className="h-5 w-5 shrink-0" /> : null}
     </>
   );
 
   return href ? (
-    <a href={href} className="flex items-center gap-4 py-5 transition-colors hover:text-primary">
+    <a href={href} className="flex items-center gap-4 py-5 text-[#201A17] transition-colors hover:text-[#754627]">
       {content}
     </a>
   ) : (
-    <div className={cn("flex items-center gap-4 py-5", !href && "text-muted-foreground")}>{content}</div>
+    <div className={cn("flex items-center gap-4 py-5 text-[#201A17]")}>{content}</div>
   );
 }
